@@ -1,4 +1,4 @@
-module geckoslab.com/xk6_mongodb
+module github.com/geckoslab/xk6-mongodb
 
 go 1.22.5
 
