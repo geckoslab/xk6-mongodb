@@ -45,6 +45,13 @@ func (*MongoDb) NewIdFromHex(hex string) mongoPrimitive.ObjectID {
 	return objectId
 }
 
+func (connection *Connection) Close() {
+	err := connection.Client.Disconnect(context.Background())
+	if err != nil {
+		log.Fatalf("Error when closing connection to MongoDB: %v", err)
+	}
+}
+
 func (connection *Connection) Insert(dbName string, collName string, doc interface{}) error {
 	collection := connection.Client.Database(dbName).Collection(collName)
 
