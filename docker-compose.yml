@@ -1,0 +1,12 @@
+volumes:
+  xk6_data:
+
+services:
+  mongodb:
+    container_name: xk6_mongodb
+    image: mongo:5
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - xk6_data:/data/db
